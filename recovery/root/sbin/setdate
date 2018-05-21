@@ -1,0 +1,49 @@
+#!/sbin/sh
+
+# ---------------------------
+# Set date + time, and fix epoch issues in OrangeFox recovery
+# Useful in OrangeFox recovery when the device's RTC is misbehaving
+#
+# By DarthJabba9
+#
+# Usage: setdate "2018-05-12-16:31"
+# 
+# date format: date +%Y%m%d%H%M -s 201805181715
+# -------------------------
+
+[ -z "$1" ] || [ "$1" = "-h" ] || [ "$1" = "--help" ] && {
+  echo "Usage =  $0 YYYY-mm-dd-HH:MM"
+  echo "Example: $0 2018-05-19-16:31"
+  exit 1
+}
+
+save_drift() {
+local now=$(date +%s)
+local epoch=$(cat /sys/class/rtc/rtc0/since_epoch)
+local drift=$(expr $now - $epoch)
+local epoch_cfg=/sdcard/Fox/epoch_drift.cfg
+	if [ ! -d /sdcard/Fox/ ]; then 
+		mkdir -p /sdcard/Fox/ 
+	fi
+	echo "Drift ($now minus $epoch)=$drift"
+	echo "$drift" > $epoch_cfg
+}
+
+# configure
+DateStr="+%Y%m%d%H%M -s"
+Value="$1"
+Value=$(echo "$1" | tr -d "-")  # remove "-"
+Value=$(echo "$Value" | tr -d ":") # remove ":"
+Value=$(echo "$Value" | tr -d " ") # remove space
+
+# change the date
+CMD="date $DateStr $Value"
+echo "- Running command: $CMD"
+$CMD
+
+# save it
+save_drift
+
+# return
+exit 0
+
