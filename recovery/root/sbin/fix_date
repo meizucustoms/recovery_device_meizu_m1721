@@ -30,7 +30,9 @@ local drift=$(expr $now - $epoch)
 	
 	# allow 5 minutes drift
 	if [ $drift -gt 600 ]; then
+	   mount /persist
 	   echo -n "$drift" > $epoch_cfg
+	   umount /persist
 	   echo "Drift ($now minus $epoch)=$drift"
 	   echo "Something trashed your device's RTC on $(date -ud @$drift)!"
 	fi
