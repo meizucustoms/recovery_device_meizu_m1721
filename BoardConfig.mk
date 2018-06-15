@@ -82,5 +82,11 @@ TW_INPUT_BLACKLIST := "hbtp_vm"
 TWRP_INCLUDE_LOGCAT := true
 TW_EXTRA_LANGUAGES := true
 
+# exFAT FS Support
+TW_INCLUDE_FUSE_EXFAT := true
+
+# NTFS Support
+TW_INCLUDE_FUSE_NTFS := true
+
 #OFFICIAL
 PB_OFFICIAL := true
