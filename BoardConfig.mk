@@ -92,6 +92,8 @@ TW_INCLUDE_FUSE_EXFAT := true
 # NTFS Support
 TW_INCLUDE_FUSE_NTFS := true
 
-#OFFICIAL
-PB_OFFICIAL := true
+# Torch
+PB_TORCH_PATH := "sys/class/leds/torch-light0"
 
+# OFFICIAL
+PB_OFFICIAL := true
