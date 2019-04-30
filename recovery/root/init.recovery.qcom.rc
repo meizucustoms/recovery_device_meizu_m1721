@@ -92,6 +92,7 @@ on property:crypto.ready=0
     stop servicemanager
 
 on property:crypto.ready=1
+    setprop ro.hardware.keystore msm8953
     start sbinqseecomd
 
 on property:sys.listeners.registered=true
