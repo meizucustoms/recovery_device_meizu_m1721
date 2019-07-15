@@ -14,6 +14,10 @@
 # limitations under the License.
 #
 
+#Copyright (C) 2018 OrangeFox Recovery Project
+#Copyright (C) 2018 PitchBlack Recovery Project
+
+
 LOCAL_PATH := device/xiaomi/mido
 
 # Architecture
