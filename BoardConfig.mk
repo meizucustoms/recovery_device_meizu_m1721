@@ -1,5 +1,7 @@
 #
 # Copyright (C) 2017 The Android Open Source Project
+# Copyright (C) 2018 PitchBlack Recovery Project
+# Copyright (C) 2018-2020 OrangeFox Recovery Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,10 +15,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
-#Copyright (C) 2018 OrangeFox Recovery Project
-#Copyright (C) 2018 PitchBlack Recovery Project
-
 
 LOCAL_PATH := device/xiaomi/mido
 
@@ -48,6 +46,7 @@ TW_INCLUDE_CRYPTO := true
 TW_INCLUDE_FBE := true
 TW_INCLUDE_CRYPTO_FBE := true
 TARGET_CRYPTFS_HW_PATH := vendor/qcom/opensource/commonsys/cryptfs_hw
+TW_CRYPTO_SYSTEM_VOLD_MOUNT := system vendor cust
 
 # Kernel
 BOARD_KERNEL_BASE := 0x80000000
@@ -66,7 +65,7 @@ BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_KERNEL_CONFIG := mido_defconfig
 TARGET_KERNEL_SOURCE := kernel/xiaomi/mido
 else
-TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/Image.gz-dtb
+TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/prebuilt/Image.gz-dtb
 PRODUCT_COPY_FILES += \
     $(TARGET_PREBUILT_KERNEL):kernel
 endif
@@ -92,6 +91,7 @@ TW_THEME := portrait_hdpi
 TW_INCLUDE_FUSE_EXFAT := true
 TW_INCLUDE_NTFS_3G := true
 TW_MAX_BRIGHTNESS := 255
+TW_DEFAULT_BRIGHTNESS := 155
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 TW_SCREEN_BLANK_ON_BOOT := true
 TARGET_RECOVERY_QCOM_RTC_FIX := true
@@ -104,8 +104,6 @@ TW_INPUT_BLACKLIST := "hbtp_vm"
 TWRP_INCLUDE_LOGCAT := true
 TW_EXTRA_LANGUAGES := true
 ALLOW_MISSING_DEPENDENCIES := true
-TW_CRYPTO_SYSTEM_VOLD_MOUNT := system vendor cust
-#TW_USE_TOOLBOX := true
 AB_OTA_UPDATER := false
 
 # Treble
@@ -117,4 +115,4 @@ TW_INCLUDE_FUSE_EXFAT := true
 
 # NTFS Support
 TW_INCLUDE_FUSE_NTFS := true
-
+#
