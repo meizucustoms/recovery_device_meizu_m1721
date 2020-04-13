@@ -33,6 +33,7 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
    	export OF_USE_MAGISKBOOT="1"
 	export OF_FORCE_MAGISKBOOT_BOOT_PATCH_MIUI="1"
    	export OF_NO_MIUI_OTA_VENDOR_BACKUP="1"
+   	export OF_NO_TREBLE_COMPATIBILITY_CHECK="1"
 
 	# let's log what are the build VARs that we used
 	if [ -n "$FOX_BUILD_LOG_FILE" -a -f "$FOX_BUILD_LOG_FILE" ]; then
@@ -40,8 +41,9 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
   	   export | grep "OF_" >> $FOX_BUILD_LOG_FILE
   	   export | grep "TW_" >> $FOX_BUILD_LOG_FILE
   	   export | grep "TARGET_" >> $FOX_BUILD_LOG_FILE
+  	   export | grep "PLATFORM_" >> $FOX_BUILD_LOG_FILE
   	fi
-  	
+
 	add_lunch_combo omni_"$FDEVICE"-eng
 	add_lunch_combo omni_"$FDEVICE"-userdebug
 fi
