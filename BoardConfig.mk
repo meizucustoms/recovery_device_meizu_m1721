@@ -62,7 +62,7 @@ endif
 
 ifeq ($(FOX_BUILD_FULL_KERNEL_SOURCES),1)
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
-TARGET_KERNEL_CONFIG := mido_defconfig
+TARGET_KERNEL_CONFIG := mido-fox_defconfig
 TARGET_KERNEL_SOURCE := kernel/xiaomi/mido
 else
 TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/prebuilt/Image.gz-dtb
