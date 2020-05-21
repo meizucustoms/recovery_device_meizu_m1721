@@ -29,7 +29,8 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	export FOX_USE_TAR_BINARY=1
 	export FOX_USE_ZIP_BINARY=1
    	export FOX_REPLACE_BUSYBOX_PS=1
-   	export OF_DISABLE_DM_VERITY_FORCED_ENCRYPTION="1"
+   	# export OF_DISABLE_DM_VERITY_FORCED_ENCRYPTION="1"; # disabling dm-verity causes stability issues with some kernel 4.9 ROMs; but is needed for MIUI
+	export OF_DISABLE_FORCED_ENCRYPTION=1
    	export FOX_USE_TWRP_RECOVERY_IMAGE_BUILDER=1
    	export OF_USE_MAGISKBOOT_FOR_ALL_PATCHES="1"
    	export OF_USE_MAGISKBOOT="1"
