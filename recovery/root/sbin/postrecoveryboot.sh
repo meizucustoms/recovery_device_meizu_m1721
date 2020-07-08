@@ -18,7 +18,6 @@
 # 	
 # 	Please maintain this if you use this script or any part of it
 #
-echo "0" > /proc/touchpanel/capacitive_keys_disable
 echo "0" > /sys/devices/soc/qpnp-flash-led-25/leds/led:torch_1/max_brightness
 echo battery-charging > /sys/class/leds/blue/trigger
 echo battery-full > /sys/class/leds/green/trigger
@@ -30,4 +29,6 @@ echo 5 > /sys/class/leds/button-backlight/brightness
 echo "0" > /sys/class/leds/led:torch_1/max_brightness
 echo "0" > /sys/class/leds/torch-light1/max_brightness
 echo "0" > /sys/class/leds/led:flash_1/max_brightness
+
+echo "0" > /proc/touchpanel/capacitive_keys_disable
 
