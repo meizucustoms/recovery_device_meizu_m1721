@@ -38,6 +38,18 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
    	export OF_NO_MIUI_OTA_VENDOR_BACKUP="1"
    	export OF_NO_TREBLE_COMPATIBILITY_CHECK="1"
 
+	# OTA for custom ROMs
+        export OF_SUPPORT_ALL_BLOCK_OTA_UPDATES=1
+        export OF_FIX_OTA_UPDATE_MANUAL_FLASH_ERROR=1
+
+        # -- add settings for R11 --
+        export FOX_R11=1
+        export FOX_ADVANCED_SECURITY=1
+        export OF_USE_TWRP_SAR_DETECT=1
+        export OF_DISABLE_MIUI_OTA_BY_DEFAULT=1
+        export OF_QUICK_BACKUP_LIST="/boot;/data;/system_image;/vendor_image;"
+        # -- end R11 settings --
+
 	# let's log what are the build VARs that we used
 	if [ -n "$FOX_BUILD_LOG_FILE" -a -f "$FOX_BUILD_LOG_FILE" ]; then
   	   export | grep "FOX" >> $FOX_BUILD_LOG_FILE
