@@ -1,7 +1,7 @@
 #
 #	This file is part of the OrangeFox Recovery Project
 # 	Copyright (C) 2018-2020 The OrangeFox Recovery Project
-#	
+#
 #	OrangeFox is free software: you can redistribute it and/or modify
 #	it under the terms of the GNU General Public License as published by
 #	the Free Software Foundation, either version 3 of the License, or
@@ -14,9 +14,25 @@
 #
 # 	This software is released under GPL version 3 or any later version.
 #	See <http://www.gnu.org/licenses/>.
-# 	
+#
 # 	Please maintain this if you use this script or any part of it
 #
+
+#set -o xtrace
+fox_get_target_device() {
+local F="$BASH_ARGV"
+   [ -z "$F" ] && F="$BASH_SOURCE"
+   if [ -n "$F" ]; then
+      local D1=$(dirname "$F")
+      local D2=$(basename "$D1")
+      [ -n "$D2" ] && echo "$D2"
+   fi
+}
+
+if [ -z "$1" -a -z "$FOX_BUILD_DEVICE" ]; then
+   FOX_BUILD_DEVICE=$(fox_get_target_device)
+fi
+
 FDEVICE="mido"
 if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
         export PLATFORM_VERSION="16.1.0"
@@ -31,6 +47,7 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
    	export FOX_REPLACE_BUSYBOX_PS=1
    	# export OF_DISABLE_DM_VERITY_FORCED_ENCRYPTION="1"; # disabling dm-verity causes stability issues with some kernel 4.9 ROMs; but is needed for MIUI
 	# export OF_DISABLE_FORCED_ENCRYPTION=1
+
    	export FOX_USE_TWRP_RECOVERY_IMAGE_BUILDER=1
    	export OF_USE_MAGISKBOOT_FOR_ALL_PATCHES="1"
    	export OF_USE_MAGISKBOOT="1"
