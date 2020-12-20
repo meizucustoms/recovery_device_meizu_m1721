@@ -57,7 +57,6 @@ TARGET_KERNEL_CONFIG := mido-fox_defconfig
 TARGET_KERNEL_SOURCE := kernel/xiaomi/mido
 else
 TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/prebuilt/Image.gz-dtb
-#TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/newkernel/Image.gz-dtb
 PRODUCT_COPY_FILES += \
     $(TARGET_PREBUILT_KERNEL):kernel
 endif
@@ -96,6 +95,9 @@ TWRP_INCLUDE_LOGCAT := true
 TW_EXTRA_LANGUAGES := true
 ALLOW_MISSING_DEPENDENCIES := true
 AB_OTA_UPDATER := false
+
+# LUN file
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.0/lun.%d/file
 
 # Treble
 BOARD_NEEDS_VENDORIMAGE_SYMLINK := false
