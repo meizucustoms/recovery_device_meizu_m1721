@@ -17,8 +17,9 @@
 #
 # 	Please maintain this if you use this script or any part of it
 #
+FDEVICE="mido"
+# set -o xtrace
 
-#set -o xtrace
 fox_get_target_device() {
 local F="$BASH_ARGV"
    [ -z "$F" ] && F="$BASH_SOURCE"
@@ -33,7 +34,6 @@ if [ -z "$1" -a -z "$FOX_BUILD_DEVICE" ]; then
    FOX_BUILD_DEVICE=$(fox_get_target_device)
 fi
 
-FDEVICE="mido"
 if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
         export PLATFORM_VERSION="16.1.0"
    	export PLATFORM_SECURITY_PATCH="2099-12-31"
@@ -43,7 +43,6 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
    	export FOX_ASH_IS_BASH=1
    	export FOX_USE_NANO_EDITOR=1
 	export FOX_USE_TAR_BINARY=1
-	export FOX_USE_ZIP_BINARY=1
    	export FOX_REPLACE_BUSYBOX_PS=1
    	# export OF_DISABLE_DM_VERITY_FORCED_ENCRYPTION="1"; # disabling dm-verity causes stability issues with some kernel 4.9 ROMs; but is needed for MIUI
 	# export OF_DISABLE_FORCED_ENCRYPTION=1
