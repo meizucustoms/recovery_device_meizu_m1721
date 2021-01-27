@@ -14,5 +14,14 @@
 # limitations under the License.
 #
 
-add_lunch_combo omni_mido-userdebug
-add_lunch_combo omni_mido-eng
+# -- add settings for R11 --
+export FOX_R11=1
+export OF_DISABLE_MIUI_SPECIFIC_FEATURES=1
+export OF_QUICK_BACKUP_LIST="/boot;/data;/system_image;/vendor_image;"
+export OF_MAINTAINER=rtx4d
+export OF_TARGET_DEVICES="m1721, M6 Note, M6Note, m6note, note6"
+# -- end R11 settings --
+
+
+add_lunch_combo omni_m1721-userdebug
+add_lunch_combo omni_m1721-eng

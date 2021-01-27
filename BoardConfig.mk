@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/xiaomi/mido
+LOCAL_PATH := device/meizu/m1721
 
 # Architecture
 TARGET_ARCH := arm64
@@ -48,21 +48,21 @@ BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
 BOARD_RAMDISK_OFFSET := 0x01000000
  
-# DJ9
+# Kernel Build
 ifeq ($(FOX_BUILD_FULL_KERNEL_SOURCES),)
 FOX_BUILD_FULL_KERNEL_SOURCES := 1
 endif
 
 ifeq ($(FOX_BUILD_FULL_KERNEL_SOURCES),1)
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
-TARGET_KERNEL_CONFIG := mido_defconfig
-TARGET_KERNEL_SOURCE := kernel/xiaomi/mido
+TARGET_KERNEL_CONFIG := m1721_defconfig
+TARGET_KERNEL_SOURCE := kernel/meizu/m1721
 else
 TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/Image.gz-dtb
 PRODUCT_COPY_FILES += \
     $(TARGET_PREBUILT_KERNEL):kernel
 endif
-# end DJ9
+# end Kernel Build
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x04000000

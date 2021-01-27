@@ -15,4 +15,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-	$(LOCAL_DIR)/omni_mido.mk
+	$(LOCAL_DIR)/omni_m1721.mk
