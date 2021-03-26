@@ -1,7 +1,7 @@
 #
 # Copyright (C) 2017 The Android Open Source Project
 # Copyright (C) 2018 PitchBlack Recovery Project
-# Copyright (C) 2018-2020 OrangeFox Recovery Project
+# Copyright (C) 2018-2021 OrangeFox Recovery Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -81,7 +81,7 @@ TW_THEME := portrait_hdpi
 TW_INCLUDE_FUSE_EXFAT := true
 TW_INCLUDE_NTFS_3G := true
 TW_MAX_BRIGHTNESS := 255
-TW_DEFAULT_BRIGHTNESS := 155
+TW_DEFAULT_BRIGHTNESS := 145
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 TW_SCREEN_BLANK_ON_BOOT := true
 TARGET_RECOVERY_QCOM_RTC_FIX := true
@@ -95,9 +95,6 @@ TWRP_INCLUDE_LOGCAT := true
 TW_EXTRA_LANGUAGES := true
 ALLOW_MISSING_DEPENDENCIES := true
 AB_OTA_UPDATER := false
-
-# LUN file
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.0/lun.%d/file
 
 # Treble
 BOARD_NEEDS_VENDORIMAGE_SYMLINK := false
