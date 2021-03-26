@@ -1,6 +1,6 @@
 # Device Tree for Xiaomi Redmi Note 4 & 4x (codenamed _"mido"_)
 
-Kernel source: "https://github.com/KudProject/kernel_xiaomi_msm8953-4.9.git"
+Kernel source: "https://github.com/zeelog/android_kernel_xiaomi_mido.git"
 ==================================
 ## Device specifications
 
@@ -29,7 +29,7 @@ Kernel source: "https://github.com/KudProject/kernel_xiaomi_msm8953-4.9.git"
   /*
   *  Copyright (C) 2013-2020 The TWRP
   *
-  *  Copyright (C) 2018-2020 The OrangeFox Recovery Project
+  *  Copyright (C) 2018-2021 The OrangeFox Recovery Project
   *
   * This program is free software: you can redistribute it and/or modify
   * it under the terms of the GNU General Public License as published by
