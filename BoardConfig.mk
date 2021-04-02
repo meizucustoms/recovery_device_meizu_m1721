@@ -105,4 +105,11 @@ TW_INCLUDE_FUSE_EXFAT := true
 
 # NTFS Support
 TW_INCLUDE_FUSE_NTFS := true
+
+# SAR
+#BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
+
+# OEM otacert
+PRODUCT_EXTRA_RECOVERY_KEYS += \
+    vendor/recovery/security/miui
 #
