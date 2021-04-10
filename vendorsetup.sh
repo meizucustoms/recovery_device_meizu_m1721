@@ -51,6 +51,9 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
    	export OF_NO_MIUI_OTA_VENDOR_BACKUP="1"
    	export OF_NO_TREBLE_COMPATIBILITY_CHECK="1"
 
+	# use magisk 21.4 for the magisk addon
+	export FOX_USE_SPECIFIC_MAGISK_ZIP=~/Magisk/Magisk-21.4.zip
+
    	# export OF_DISABLE_DM_VERITY_FORCED_ENCRYPTION="1"; # disabling dm-verity causes stability issues with some kernel 4.9 ROMs; but is needed for MIUI
    	export OF_FORCE_DISABLE_DM_VERITY_MIUI="1"
 	export OF_FORCE_MAGISKBOOT_BOOT_PATCH_MIUI="1"	
@@ -63,9 +66,12 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
         export FOX_R11=1
         export OF_DISABLE_MIUI_OTA_BY_DEFAULT=1
         export OF_QUICK_BACKUP_LIST="/boot;/data;/system_image;/vendor_image;"
+        export OF_USE_TWRP_SAR_DETECT=1
         #export FOX_ADVANCED_SECURITY=1
-        #export OF_USE_TWRP_SAR_DETECT=1
         # -- end R11 settings --
+
+	# run a process after formatting data to work-around MTP issues
+	export OF_RUN_POST_FORMAT_PROCESS=1
 
 	# let's log what are the build VARs that we used
 	if [ -n "$FOX_BUILD_LOG_FILE" -a -f "$FOX_BUILD_LOG_FILE" ]; then
