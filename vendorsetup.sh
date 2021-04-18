@@ -50,6 +50,7 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
    	export OF_USE_MAGISKBOOT="1"
    	export OF_NO_MIUI_OTA_VENDOR_BACKUP="1"
    	export OF_NO_TREBLE_COMPATIBILITY_CHECK="1"
+	export OF_USE_SYSTEM_FINGERPRINT="1"
 
 	# use magisk 21.4 for the magisk addon
 	export FOX_USE_SPECIFIC_MAGISK_ZIP=~/Magisk/Magisk-21.4.zip
