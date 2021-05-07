@@ -38,7 +38,7 @@
 /efsc		emmc	  /dev/block/bootdevice/by-name/fsc	             flags=backup=1;subpartitionof=/efs1
 #
 /sdcard1        auto      /dev/block/mmcblk1p1                               flags=display="MicroSD";storage;wipeingui;removable
-/usb-otg        auto      /dev/block/sda1                                    flags=display="USB Storage";storage;wipeingui;removable
+/usb_otg        auto      /dev/block/sda1                                    flags=display="USB Storage";storage;wipeingui;removable
 #
 /cust         	ext4      /dev/block/bootdevice/by-name/cust       	     flags=display="Cust";backup=0
 #
