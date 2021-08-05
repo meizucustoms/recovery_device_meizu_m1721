@@ -15,7 +15,7 @@
 #
 
 # Release name
-PRODUCT_RELEASE_NAME := mido
+PRODUCT_RELEASE_NAME := m1721
 
 $(call inherit-product, build/target/product/embedded.mk)
 
@@ -26,8 +26,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.hardware.keystore=msm8953
 
 # Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := mido
-PRODUCT_NAME := omni_mido
-PRODUCT_BRAND := Xiaomi
-PRODUCT_MODEL := Redmi Note 4
-PRODUCT_MANUFACTURER := Xiaomi
+PRODUCT_DEVICE := m1721
+PRODUCT_NAME := omni_m1721
+PRODUCT_BRAND := Meizu
+PRODUCT_MODEL := M6 Note
+PRODUCT_MANUFACTURER := Meizu

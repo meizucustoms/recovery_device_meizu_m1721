@@ -16,7 +16,7 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/xiaomi/mido
+LOCAL_PATH := device/meizu/m1721
 
 # Architecture
 TARGET_ARCH := arm64
@@ -53,8 +53,8 @@ BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
 
 ifeq ($(FOX_BUILD_FULL_KERNEL_SOURCES),1)
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
-TARGET_KERNEL_CONFIG := mido-fox_defconfig
-TARGET_KERNEL_SOURCE := kernel/xiaomi/mido
+TARGET_KERNEL_CONFIG := m1721_defconfig
+TARGET_KERNEL_SOURCE := kernel/meizu/m1721
 else
 TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/prebuilt/Image.gz-dtb
 PRODUCT_COPY_FILES += \
@@ -101,8 +101,3 @@ TARGET_COPY_OUT_VENDOR := vendor
 
 # SAR
 #BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
-
-# OEM otacert
-PRODUCT_EXTRA_RECOVERY_KEYS += \
-    vendor/recovery/security/miui
-#
