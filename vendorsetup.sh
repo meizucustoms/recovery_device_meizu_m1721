@@ -52,6 +52,9 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	export OF_NO_MIUI_OTA_VENDOR_BACKUP="1"
 	export OF_NO_TREBLE_COMPATIBILITY_CHECK="1"
 	export OF_USE_SYSTEM_FINGERPRINT="1"
+	export OF_FL_PATH1="/sys/class/leds/torch-light"
+	export TARGET_DEVICE_ALT="M6Note, m6note"
+	export OF_TARGET_DEVICES="m1721,M6Note"
 
 	# export OF_DISABLE_DM_VERITY_FORCED_ENCRYPTION="1"; # disabling dm-verity causes stability issues with some kernel 4.9 ROMs; but is needed for MIUI
 	export OF_FORCE_DISABLE_DM_VERITY_MIUI="1"
