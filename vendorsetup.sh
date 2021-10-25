@@ -53,9 +53,6 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	export OF_NO_TREBLE_COMPATIBILITY_CHECK="1"
 	export OF_USE_SYSTEM_FINGERPRINT="1"
 
-	# use magisk 21.4 for the magisk addon
-	export FOX_USE_SPECIFIC_MAGISK_ZIP=~/Magisk/Magisk-21.4.zip
-
 	# export OF_DISABLE_DM_VERITY_FORCED_ENCRYPTION="1"; # disabling dm-verity causes stability issues with some kernel 4.9 ROMs; but is needed for MIUI
 	export OF_FORCE_DISABLE_DM_VERITY_MIUI="1"
 	export OF_FORCE_MAGISKBOOT_BOOT_PATCH_MIUI="1"
