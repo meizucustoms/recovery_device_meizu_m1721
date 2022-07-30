@@ -55,6 +55,7 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	export OF_FL_PATH1="/sys/class/leds/torch-light"
 	export TARGET_DEVICE_ALT="M6Note, m6note"
 	export OF_TARGET_DEVICES="m1721,M6Note"
+	export FOX_USE_SPECIFIC_MAGISK_ZIP="$HOME/FoxMagisk.zip"
 
 	# export OF_DISABLE_DM_VERITY_FORCED_ENCRYPTION="1"; # disabling dm-verity causes stability issues with some kernel 4.9 ROMs; but is needed for MIUI
 	export OF_FORCE_DISABLE_DM_VERITY_MIUI="1"
@@ -74,6 +75,8 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	export OF_RUN_POST_FORMAT_PROCESS=1
 	export OF_DISABLE_MIUI_SPECIFIC_FEATURES=1
 
+	export OF_MANUAL_COPY_TWRES=1
+
 	# let's log what are the build VARs that we used
 	if [ -n "$FOX_BUILD_LOG_FILE" -a -f "$FOX_BUILD_LOG_FILE" ]; then
 		export | grep "FOX" >>$FOX_BUILD_LOG_FILE
@@ -82,9 +85,5 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 		export | grep "TARGET_" >>$FOX_BUILD_LOG_FILE
 		export | grep "PLATFORM_" >>$FOX_BUILD_LOG_FILE
 	fi
-
-	for var in eng user userdebug; do
-		add_lunch_combo omni_"$FDEVICE"-$var
-	done
 fi
 #

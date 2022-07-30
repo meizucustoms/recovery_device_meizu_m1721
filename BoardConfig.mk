@@ -18,6 +18,9 @@
 
 LOCAL_PATH := device/meizu/m1721
 
+# 64-bit
+TARGET_SUPPORTS_64_BIT_APPS := true
+
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
@@ -39,27 +42,22 @@ TARGET_BOARD_SUFFIX := _64
 TARGET_BOOTLOADER_BOARD_NAME := MSM8953
 TARGET_NO_BOOTLOADER := true
 
-# Crypto
-TARGET_HW_DISK_ENCRYPTION := true
-TARGET_CRYPTFS_HW_PATH := vendor/qcom/opensource/commonsys/cryptfs_hw
-TW_INCLUDE_CRYPTO := true
-
 # Kernel
 BOARD_KERNEL_BASE := 0x80000000
-BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 androidboot.bootdevice=7824900.sdhci earlycon=msm_hsl_uart,0x78af000 androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE := \
+	androidboot.hardware=qcom \
+	androidboot.memcg=1 \
+	msm_rtb.filter=0x237 \
+	ehci-hcd.park=3 \
+	lpm_levels.sleep_disabled=1 \
+	androidboot.bootdevice=7824900.sdhci \
+	earlycon=msm_hsl_uart,0x78af000 \
+	androidboot.selinux=permissive \
+	androidboot.init_fatal_reboot_target=recovery
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 BOARD_KERNEL_PAGESIZE :=  2048
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
-
-ifeq ($(FOX_BUILD_FULL_KERNEL_SOURCES),1)
-BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
-TARGET_KERNEL_CONFIG := m1721_defconfig
-TARGET_KERNEL_SOURCE := kernel/meizu/m1721
-else
 TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/prebuilt/Image.gz-dtb
-PRODUCT_COPY_FILES += \
-    $(TARGET_PREBUILT_KERNEL):kernel
-endif
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x04000000
@@ -76,6 +74,10 @@ BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
+# Treble
+BOARD_NEEDS_VENDORIMAGE_SYMLINK := false
+TARGET_COPY_OUT_VENDOR := vendor
+
 # TWRP Configuration
 TW_THEME := portrait_hdpi
 TW_INCLUDE_NTFS_3G := true
@@ -84,20 +86,15 @@ TW_DEFAULT_BRIGHTNESS := 145
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 TW_SCREEN_BLANK_ON_BOOT := true
 TARGET_RECOVERY_QCOM_RTC_FIX := true
-TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/recovery.fstab
 BOARD_SUPPRESS_SECURE_ERASE := true
 RECOVERY_SDCARD_ON_DATA := true
-RECOVERY_GRAPHICS_USE_LINELENGTH := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
 TWRP_INCLUDE_LOGCAT := true
 TW_EXTRA_LANGUAGES := true
 ALLOW_MISSING_DEPENDENCIES := true
 AB_OTA_UPDATER := false
 TARGET_USES_LOGD := true
-# Treble
-BOARD_NEEDS_VENDORIMAGE_SYMLINK := false
-TARGET_COPY_OUT_VENDOR := vendor
 
 # SAR
 #BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
